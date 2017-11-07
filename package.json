@@ -1,0 +1,34 @@
+{
+  "name": "mariana-trench",
+  "version": "1.0.0",
+  "description": "Better WYSIWYG editor for emailing services",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byronmejia/mariana-trench.git"
+  },
+  "author": "Byron Mejia <byron@clipchamp.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byronmejia/mariana-trench/issues"
+  },
+  "homepage": "https://github.com/byronmejia/mariana-trench#readme",
+  "devDependencies": {
+    "@types/webpack": "^3.8.0",
+    "copy-webpack-plugin": "^4.2.0",
+    "html-webpack-plugin": "^2.30.1",
+    "pug": "^2.0.0-rc.4",
+    "pug-loader": "^2.3.0",
+    "ts-loader": "^3.1.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
