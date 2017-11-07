@@ -5,10 +5,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config: Configuration = {
-    entry: './src/index.ts',
+    entry: {
+        index: './src/index.ts',
+        background: './src/background.ts'
+
+    },
     devtool: 'inline-source-map',
     resolve: {
-        extensions: [ '.ts' ]
+        extensions: [ '.ts', '.js' ]
     },
     module: {
         rules: [
@@ -16,6 +20,16 @@ const config: Configuration = {
                 test: /\.ts$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {}
+                    }
+                ]
             }
         ],
         loaders: [
@@ -25,7 +39,7 @@ const config: Configuration = {
         ]
     },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: resolve(__dirname, 'dist')
     },
     plugins: [
@@ -37,7 +51,8 @@ const config: Configuration = {
         new HtmlWebpackPlugin({
             filename: 'popup.html',
             template: '!!pug-loader!./src/popup.pug',
-            title: 'Mariana Trench Editor'
+            title: 'Mariana Trench Editor',
+            chunks: ['index'],
         })
     ]
 };

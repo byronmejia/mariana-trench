@@ -12,5 +12,12 @@
   "permissions": [
     "activeTab",
     "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://my.sendinblue.com/camp/*"],
+      "js": ["background.js"],
+      "run_at": "document_idle"
+    }
   ]
 }
